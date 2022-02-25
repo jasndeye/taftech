@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <!--  menu Taf-Tech -->
+        <menuitem name="Taf-Tech" id="taftech_menu_root" sequence="1" />
+        <!--  menu hotel -->
+            <menuitem name="Hotel" id="hotel_menu_root" parent="taftech_menu_root" sequence="1" />
+                <menuitem name="Chambre" id="chambre" parent="hotel_menu_root" sequence="1" action="action_taftech_chambre" />
+                <menuitem name="Services" id="service" parent="hotel_menu_root" sequence="3" action="action_taftech_service" />
+                <menuitem name="Reservation" id="reservation" parent="hotel_menu_root" sequence="2" action="action_taftech_resevation" />
+                <menuitem name="Personnels" id="personnel" parent="hotel_menu_root" sequence="4" action="action_taftech_personnelh" />
+                <menuitem name="Clients" id="client" parent="hotel_menu_root" sequence="5" action="action_taftech_clienth" />
+                <menuitem name="Caisse" id="caisse" parent="hotel_menu_root" sequence="6" />
+                    <menuitem name="Facturations" id="fc" parent="caisse" action="action_taftech_Facturation" />
+                    <!-- <menuitem name="Paiements" id="paie" parent="caisse" action="action_taftech_Paiement" /> -->
+                <menuitem name="Specifications" id="specification" parent="hotel_menu_root" sequence="7" action="action_taftech_specifation" />
+            <!--  menu Restaurant -->
+            <menuitem name="Restaurant" id="resto_menu_root" parent="taftech_menu_root" sequence="2" />
+                <menuitem name="Produit" id="pr_menu_root" parent="resto_menu_root" sequence="1" action="action_taftech_produitr" />
+                <menuitem name="Clients" id="client" parent="resto_menu_root" sequence="3" action="action_taftech_clientr" />
+                <menuitem name="Menu" id="menu" parent="resto_menu_root" sequence="2" action="action_taftech_menur" />
+                <menuitem name="Personnels" id="personnel" parent="resto_menu_root" sequence="4" action="action_taftech_personnelr" />
+                <menuitem name="Caisse" id="caisser" parent="resto_menu_root" sequence="5" />
+                    <menuitem name="Facturation" id="fc" parent="caisser" action="action_taftech_FacturationClientsr" sequence="1"/>
+                    <menuitem name="Commande" id="cc" parent="caisser" action="action_taftech_CommandeClientsr" sequence="2" />
+                    <!-- <menuitem name="Paiement" id="paiem" parent="caisser" action="action_taftech_paiementsr" sequence="3"/> -->
+            <!--  menu Bar -->
+            <menuitem name="Bar" id="bar_menu_root" parent="taftech_menu_root" sequence="3" />
+                <menuitem name="Produit" id="prb_menu_root" parent="bar_menu_root" sequence="1" action="action_taftech_produitb" />
+                <menuitem name="Clients" id="clientb" parent="bar_menu_root" sequence="3" action="action_taftech_clientb" />
+                <menuitem name="Personnels" id="personnelb" parent="bar_menu_root" sequence="4" action="action_taftech_personnelb" />
+                <menuitem name="Caisse" id="caisseb" parent="bar_menu_root" sequence="5" />
+                    <menuitem name="Facturation" id="fcb" parent="caisseb" action="action_taftech_FacturationClientsb" />
+                    <menuitem name="Commande" id="ccb" parent="caisseb" action="action_taftech_CommandeClientsb" />
+                    <!-- <menuitem name="Paiement" id="paiemb" parent="caisseb" action="action_taftech_paiementsb" /> -->
+            <!--  menu Fastfood -->
+            <menuitem name="Fasfood" id="ff_menu_root" parent="taftech_menu_root" sequence="4" />
+                <menuitem name="Produit" id="pr_menu_rootf" parent="ff_menu_root" sequence="1" action="action_taftech_produitf" />
+                <menuitem name="Clients" id="clientf" parent="ff_menu_root" sequence="3" action="action_taftech_clientf" />
+                <menuitem name="Menu" id="menuf" parent="ff_menu_root" sequence="2" action="action_taftech_menuf" />
+                <menuitem name="Personnels" id="personnelf" parent="ff_menu_root" sequence="4" action="action_taftech_personnelf" />
+                <menuitem name="Caisse" id="caissef" parent="ff_menu_root" sequence="5" />
+                    <menuitem name="Facturation" id="fcf" parent="caissef" action="action_taftech_FacturationClientsf" />
+                    <menuitem name="Commande" id="ccf" parent="caissef" action="action_taftech_CommandeClientsf" />
+                    <!-- <menuitem name="Paiement" id="paiemf" parent="caissef" action="action_taftech_paiementsf" /> -->
+    </data>
+</odoo>
