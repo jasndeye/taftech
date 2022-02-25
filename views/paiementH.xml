@@ -3,7 +3,7 @@
      <data>
    
        <!-- L'action du menu paiement -->
-       <record model="ir.actions.act_window" id="action_taftech_Paiements">
+       <record model="ir.actions.act_window" id="action_taftech_Paiement">
          <field name="name">Paiements</field>
          <field name="type">ir.actions.act_window</field>
          <field name="res_model">commerciale.paiement</field>
