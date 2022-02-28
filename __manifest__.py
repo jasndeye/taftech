@@ -23,7 +23,7 @@
     # always loaded
     'data': [
             'views/chambre.xml',
-            'views/service.xml',
+            # 'views/service.xml',
             'views/clientH.xml',
             'views/personnelH.xml',
             'views/paiementH.xml',

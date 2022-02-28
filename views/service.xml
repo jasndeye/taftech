@@ -1,6 +1,8 @@
+
 <odoo>
+ 
   <data>
-    <!-- L'action du menu service -->
+     L'action du menu service 
     <record model="ir.actions.act_window" id="action_taftech_service">
       <field name="name">Services</field>
       <field name="type">ir.actions.act_window</field>
