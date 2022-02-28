@@ -3,7 +3,7 @@
      <data>
    
        <!-- L'action du menu reservation -->
-       <record model="ir.actions.act_window" id="action_taftech_resevation">
+       <record model="ir.actions.act_window" id="action_taftech_reservation">
          <field name="name">Reservations</field>
          <field name="type">ir.actions.act_window</field>
          <field name="res_model">taftech.reservation</field>
