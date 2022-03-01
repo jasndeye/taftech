@@ -1,14 +1,56 @@
 <odoo>
+  <record model="ir.ui.view" id="taftech_specification_form">
+    <field name="name">taftech_specification_form</field>
+    <field name="model">taftech.specification</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <group>
+              <field name="chambre_ids" string="chambre" widget="many2many_tags" options="{'no_create':true}" />
+              <field name="name" />
+            </group>
+            <group></group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
 
-     <data>
-   
-       <!-- L'action du menu client -->
-       <record model="ir.actions.act_window" id="action_taftech_specifation">
-         <field name="name">Specifications</field>
-         <field name="type">ir.actions.act_window</field>
-         <field name="res_model">taftech.specification</field>
-         <field name="view_type">form</field>
-         <field name="view_mode">tree,form,kanban</field>
-       </record>
-     </data>
+  <data>
+    <record model="ir.ui.view" id="taftech_specification_tree">
+      <field name="name">taftech_specification_tree</field>
+      <field name="model">taftech.specification</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="chambre_ids" string="chambre" />
+          <field name="name" />
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="taftech_specification_search">
+      <field name="name">taftech_specification_search</field>
+      <field name="model">taftech.specification</field>
+      <field name="arch" type="xml">
+        <search>
+          <!-- filtrer en fonction de la specification -->
+          <field name="name" filter_domain="[('name','like',self)]" />
+
+          <!-- grouper par specification -->
+          <filter name="name" string="groupement par specification" domain="[ ]" context="{'group_by': 'name'}" />
+
+        </search>
+      </field>
+    </record>
+
+    <!-- L'action du menu client -->
+    <record model="ir.actions.act_window" id="action_taftech_specifation">
+      <field name="name">Specifications</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">taftech.specification</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+  </data>
 </odoo>

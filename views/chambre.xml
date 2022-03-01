@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="taftech_chambre_form">
+        <field name="name">taftech_chambre_form</field>
+        <field name="model">taftech.chambre</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="image" widget="image" width="12%" string="Image" />
+                            <field name="name" />
+                            <field name="tarif_horaire" />
+                            <field name="devis" string="Devis" />
+                        </group>
+                        <group>
+                            <field name="type" string="Type" />
+                            <field name="etat" string="Etat" />
+                            <field name="etage" string="Etage" />
+                            <field name="specification" widget="many2many_tags" />
+                            <field name="description" string="Description" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- La vue recherche -->
+    <record model="ir.ui.view" id="taftech_chambre_search">
+        <field name="name">taftech_chambre_search</field>
+        <field name="model">taftech.chambre</field>
+        <field name="arch" type="xml">
+            <search>
+                <!-- filtrer en fonction de l'etat de la chambre -->
+                <field name="etat" filter_domain="[('etat','like',self)]" />
+
+                <!-- filtrer en fonction du type de la chambre -->
+                <field name="type" filter_domain="[('type','like',self)]" />
+                
+                <!-- rechercher en fonction de l'etat de la chambre -->
+                <filter name="etat" string="chambre disponible" domain="[('etat','=','d')]" />
+                <filter name="etat" string="chambre reserve" domain="[('etat','=','r')]" />
+                <filter name="etat" string="chambre occupe" domain="[('etat','=','o')]" />
+
+                <!-- recherche en fonction du type de la chambre -->
+                <filter name="type" string="chambre suite" domain="[('type','=','s')]" />
+                <filter name="type" string="chambre single" domain="[('type','=','sg')]" />
+                <filter name="type" string="chambre double" domain="[('type','=','d')]" />
+                <filter name="type" string="chambre triple" domain="[('type','=','t')]" />
+                <filter name="type" string="chambre quadriple" domain="[('type','=','q')]" />
+                <filter name="type" string="chambre Bangalow" domain="[('type','=','b')]" />
+
+                <!-- grouper par type de chambre -->
+                <filter name="type" string="groupement par type" domain="[ ]" context="{'group_by': 'type'}" />
+
+                <!-- grouper par l'etage de chambre -->
+                <filter name="etage" string="groupement par etage" domain="[ ]" context="{'group_by': 'etage'}" />
+
+                <!-- grouper par le tarif horaire de chambre -->
+                <filter name="tarif_horaire" string="groupement par tarif" domain="[ ]" context="{'group_by': 'tarif_horaire'}" />
+
+                <!-- grouper par l'etat de chambre -->
+                <filter name="etat" string="groupement par etat" domain="[ ]" context="{'group_by': 'etat'}" />
+
+            </search>
+        </field>
+    </record>
+
+    <!-- La vue Kanban -->
+    <record model="ir.ui.view" id="livre_kanban_view">
+        <field name="name">VueKanbanchambre</field>
+        <field name="model">taftech.chambre</field>
+        <field name="type">kanban</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="etage" />
+                <field name="image" />
+                <field name="description" />
+                <field name="tarif_horaire" />
+                <field name="devis" />
+                <field name="etat" />
+                <field name="type" />
+                <field name="id" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img t-att-src="kanban_image('taftech.chambre','image',record.id.value)" alt="Image" />
+                            </div>
+                            <div class="oe_resource_details">
+                                <ul style="list-style-type: none;">
+                                    <li>
+                                        <span> Prix : </span>
+                                        <field name="tarif_horaire" />
+                                        <span></span>
+                                        <field name="devis" />
+                                    </li>
+                                    <li>
+                                        <span> Etat : </span>
+                                        <field name="etat" />
+                                    </li>
+                                    <li>
+                                        <span> Type : </span>
+                                        <field name="type" />
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- La vue Tree-->
+    <record model="ir.ui.view" id="bibliotheque_chambre_tree">
+        <field name="name">taftech_chambre_tree</field>
+        <field name="model">taftech.chambre</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="image" widget="image" width="80px" string="Image" />
+                <field name="name" />
+                <field name="etage" string="Etage" />
+                <field name="tarif_horaire" />
+                <field name="devis" />
+                <field name="description" />
+                <field name="specification" />
+                <field name="type" />
+                <field name="etat" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- L'action du chambre -->
+    <record model="ir.actions.act_window" id="action_taftech_chambre">
+        <field name="name">Chambre</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">taftech.chambre</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+</odoo>
